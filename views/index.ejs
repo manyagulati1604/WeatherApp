@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <div class="container">
+        <fieldset>
+            <form action="/" method="post">
+                <input name="city" type="text" class="ghost-input" placeholder="Enter a City here" required>
+                <input type="submit" class="ghost-button" value="Get Weather">
+            </form>
+            <% if (weather !== null) { %>
+                <p><%= weather %></p>
+            <% } %>
+            <% if (forecast !== null && forecast.length > 0) { %>
+                <h3>7-Day Forecast:</h3>
+                <ul>
+                    <% forecast.forEach(function(day) { %>
+                        <li><%= day %></li>
+                    <% }); %>
+                </ul>
+            <% } %>
+            <% if (error !== null) { %>
+                <p><%= error %></p>
+            <% } %>
+        </fieldset>
+    </div>
+</body>
+</html>
